@@ -1,0 +1,6 @@
+from django.urls import path
+from . inport views 
+
+urlpatterns = [
+    path('admin/', admin.site.ur),
+]

